@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio</title>
+</head>
+<body>
+    <h2>Formulário</h2>
+
+    <p>Nome: <input id="nome" onkeyup="mostrarTamanho()"></p>
+    <br><br>
+    <p>Email: <input id="email" onblur="checarEmail()"></p>
+    <br><br>
+    <button onclick="enviar()">Enviar</button>
+    <br><br>
+    <p id="mensagem"></p>
+
+    <script>
+    function mostrarTamanho() {
+      let nome = document.getElementById("nome").value;
+      console.log("Caracteres: " + nome.length);
+    }
+
+    function checarEmail() {
+      let email = document.getElementById("email").value;
+      let msg = document.getElementById("mensagem");
+
+      if (email === "") {
+        msg.innerText = "Por favor, preencha o e-mail";
+        msg.style.color = "red";
+      }
+    }
+    function enviar() {
+      let nome = document.getElementById("nome").value;
+      let email = document.getElementById("email").value;
+      let msg = document.getElementById("mensagem");
+      if (email === "") {
+        msg.innerText = "Por favor, preencha o e-mail";
+        msg.style.color = "red";
+        
+      } else{
+        msg.innerText = "Obrigado, " + nome + "! Seus dados foram enviados com sucesso.";
+        msg.style.color = "green";
+      }
+
+      
+    }
+    </script>
+</body>
+</html>
